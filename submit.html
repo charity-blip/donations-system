@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Application Submitted</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f0f2f5;
+        color: #0A1F44;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        height: 100vh;
+        width: 220px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #0A1F44;
+        color: #C9A227;
+        padding-top: 20px;
+    }
+    .sidebar h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 22px;
+    }
+    .sidebar a {
+        display: block;
+        color: #C9A227;
+        padding: 12px 20px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .sidebar a:hover {
+        background: #C9A227;
+        color: #0A1F44;
+        border-radius: 8px;
+    }
+
+    /* Main content */
+    .main {
+        margin-left: 220px;
+        padding: 50px 30px;
+        text-align: center;
+        flex: 1;
+    }
+
+    .success-box {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .success-box h1 {
+        font-size: 32px;
+        color: #0A1F44;
+        margin-bottom: 20px;
+    }
+
+    .success-box p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+
+    .success-box button {
+        background: #C9A227;
+        color: #0A1F44;
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .success-box button:hover {
+        opacity: 0.9;
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        background: #0A1F44;
+        color: #C9A227;
+        margin-top: auto;
+    }
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>Student Panel</h2>
+    <a href="student_dashboard.html">Dashboard</a>
+  
+    <a href="student_status.html">Track Application</a>
+    <a href="logout.html">Logout</a>
+</div>
+
+<!-- Main Content -->
+<div class="main">
+    <div class="success-box">
+        <h1>Application Submitted ✅</h1>
+        <p>Thank you for submitting your scholarship application. Your documents have been received successfully. <br><br>
+        The administration will review your application within <strong>7–10 business days</strong>. Approved funds will be disbursed within <strong>5 business days</strong> after verification. <br><br>
+        You can track your application progress at any time by clicking the "Track Application" button below.</p>
+        <button onclick="window.location.href='student_dashboard.html'">Back to Dashboard</button>
+    </div>
+</div>
+
+<footer>
+    © 2026 Donor Management System | Student Application
+</footer>
+
+</body>
+</html>

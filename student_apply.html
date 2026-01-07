@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Apply for Scholarship</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f0f2f5;
+        color: #0A1F44;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        height: 100vh;
+        width: 220px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #0A1F44;
+        color: #C9A227;
+        padding-top: 20px;
+    }
+    .sidebar h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 22px;
+    }
+    .sidebar a {
+        display: block;
+        color: #C9A227;
+        padding: 12px 20px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .sidebar a:hover {
+        background: #C9A227;
+        color: #0A1F44;
+        border-radius: 8px;
+    }
+
+    /* Main content */
+    .main {
+        margin-left: 220px;
+        padding: 30px;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: #0A1F44;
+        color: #C9A227;
+        padding: 25px;
+        border-radius: 12px;
+        margin-bottom: 30px;
+    }
+    .hero h1 {
+        margin: 0;
+        font-size: 28px;
+    }
+    .hero p {
+        margin: 5px 0 0;
+    }
+
+    /* Form */
+    .form-container {
+        max-width: 750px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+        color: #0A1F44;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-container label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-container input, .form-container select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    .form-container input:focus, .form-container select:focus {
+        outline: none;
+        border-color: #C9A227;
+    }
+
+    .form-container button {
+        background: #C9A227;
+        color: #0A1F44;
+        padding: 15px;
+        font-size: 18px;
+        width: 100%;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .form-container button:hover {
+        opacity: 0.9;
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        background: #0A1F44;
+        color: #C9A227;
+        position: fixed;
+        bottom: 0;
+        width: calc(100% - 220px);
+        margin-left: 220px;
+    }
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>Student Panel</h2>
+    <a href="student_dashboard.html">Dashboard</a>
+    <a href="student_apply.html">Apply for Scholarship</a>
+    <a href="student_status.html">Track Application</a>
+    <a href="logout.html">Logout</a>
+</div>
+
+<!-- Main Content -->
+<div class="main">
+    <div class="hero">
+        <h1>Scholarship Application</h1>
+        <p>Fill in your details and upload required documents to apply.</p>
+    </div>
+
+    <div class="form-container">
+        <h2>Application Form</h2>
+        <form id="scholarshipForm" onsubmit="submitApplication(); return false;">
+            
+            <!-- Student Personal Info -->
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" placeholder="Enter your phone number" required>
+
+            <label for="school">School / Institution</label>
+            <input type="text" id="school" placeholder="Enter your school name" required>
+
+            <label for="grade">Grade / Year</label>
+            <input type="text" id="grade" placeholder="Enter your grade or year" required>
+
+            <label for="gpa">GPA / Academic Score</label>
+            <input type="text" id="gpa" placeholder="Enter your GPA" required>
+
+            <!-- Parent/Guardian Details -->
+            <h3>Parent / Guardian Details</h3>
+            <label for="parentName">Parent/Guardian Name (if alive)</label>
+            <input type="text" id="parentName" placeholder="Enter parent's name" required>
+
+            <label for="parentPhone">Parent/Guardian Phone Number</label>
+            <input type="text" id="parentPhone" placeholder="Enter parent's phone" required>
+
+            <label for="parentOccupation">Parent/Guardian Occupation</label>
+            <input type="text" id="parentOccupation" placeholder="Enter parent's occupation" required>
+
+            <!-- Student Bank Info -->
+            <h3>Bank Account Details</h3>
+            <label for="bankName">Bank Name</label>
+            <input type="text" id="bankName" placeholder="Enter your bank name" required>
+
+            <label for="accountNumber">Account Number</label>
+            <input type="text" id="accountNumber" placeholder="Enter your account number" required>
+
+            <!-- Document Uploads -->
+            <h3>Required Documents</h3>
+            <label for="nationalID">Upload National ID</label>
+            <input type="file" id="nationalID" accept=".pdf,.jpg,.png" required>
+
+            <label for="studentID">Upload Student ID (Campus)</label>
+            <input type="file" id="studentID" accept=".pdf,.jpg,.png" required>
+
+            <label for="admissionNumber">Upload Admission Number</label>
+            <input type="file" id="admissionNumber" accept=".pdf,.jpg,.png" required>
+
+            <label for="otherDocs">Other Documents (Transcripts, Recommendations)</label>
+            <input type="file" id="otherDocs" accept=".pdf,.jpg,.png" required multiple>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    © 2026 Donor Management System | Student Application
+</footer>
+
+<script>
+function submitApplication() {
+    // Get form values
+    const requiredFields = [
+        'fullName','email','phone','school','grade','gpa',
+        'parentName','parentPhone','parentOccupation',
+        'bankName','accountNumber',
+        'nationalID','studentID','admissionNumber','otherDocs'
+    ];
+
+    for(let field of requiredFields){
+        const element = document.getElementById(field);
+        if(!element.value || (element.files && element.files.length === 0)){
+            alert("Please fill in all fields and upload required documents.");
+            return;
+        }
+    }
+
+    // Redirect to success page
+    window.location.href = "submit.html";
+}
+</script>
+
+</body>
+</html>

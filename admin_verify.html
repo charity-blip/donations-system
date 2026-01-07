@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Verify Students</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f7fa;
+        margin:0;
+        color: #0A1F44;
+    }
+
+    /* Header */
+    header{
+        background: #0A1F44;
+        color: white;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header h1{ font-size: 22px; }
+    header a.logout{
+        background: #C9A227;
+        color: #0A1F44;
+        padding: 8px 15px;
+        border-radius:5px;
+        font-weight: bold;
+    }
+
+    /* Sidebar */
+    .sidebar{
+        width: 220px;
+        background: #0A1F44;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+    .sidebar a{
+        padding: 15px 20px;
+        color: white;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .sidebar a:hover{
+        background: #C9A227;
+        color: #0A1F44;
+    }
+
+    /* Main content */
+    .main{
+        margin-left: 220px;
+        padding: 30px;
+    }
+
+    h2{
+        margin-bottom: 20px;
+    }
+
+    /* Table */
+    table{
+        width:100%;
+        border-collapse: collapse;
+        background:white;
+        border-radius:8px;
+        overflow:hidden;
+        box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+    th, td{
+        padding:12px 15px;
+        text-align:left;
+        border-bottom:1px solid #ddd;
+    }
+    th{
+        background:#0A1F44;
+        color:white;
+    }
+    tr:hover{
+        background:#f5f5f5;
+    }
+
+    /* Buttons */
+    .btn{
+        padding:6px 12px;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+        font-weight:bold;
+        margin-right:5px;
+    }
+    .approve{
+        background:#C9A227;
+        color:#0A1F44;
+    }
+    .reject{
+        background:#A01F44;
+        color:white;
+    }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Verify Students</h1>
+    <a href="login.html" class="logout">Logout</a>
+</header>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <a href="admin_dashboard.html">Dashboard</a>
+    <a href="admin_verify.html">Verify Students</a>
+    <a href="admin_allocation.html">Allocate Funds</a>
+    <a href="admin_reports.html">Reports</a>
+</div>
+
+<!-- Main Content -->
+<div class="main">
+    <h2>Pending Student Applications</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Institution</th>
+                <th>Amount Requested</th>
+                <th>Documents</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ali Hassan</td>
+                <td>University of Nairobi</td>
+                <td>KES 50,000</td>
+                <td><a href="#">View</a></td>
+                <td>Pending</td>
+                <td>
+                    <button class="btn approve" onclick="approve(this)">Approve</button>
+                    <button class="btn reject" onclick="reject(this)">Reject</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Mary Wanjiku</td>
+                <td>Kenyatta University</td>
+                <td>KES 40,000</td>
+                <td><a href="#">View</a></td>
+                <td>Pending</td>
+                <td>
+                    <button class="btn approve" onclick="approve(this)">Approve</button>
+                    <button class="btn reject" onclick="reject(this)">Reject</button>
+                </td>
+            </tr>
+            <tr>
+                <td>John Mwangi</td>
+                <td>Strathmore University</td>
+                <td>KES 35,000</td>
+                <td><a href="#">View</a></td>
+                <td>Pending</td>
+                <td>
+                    <button class="btn approve" onclick="approve(this)">Approve</button>
+                    <button class="btn reject" onclick="reject(this)">Reject</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+function approve(btn){
+    const row = btn.parentNode.parentNode;
+    row.cells[4].innerText = "Approved";
+    alert("Application Approved ✅");
+}
+
+function reject(btn){
+    const row = btn.parentNode.parentNode;
+    row.cells[4].innerText = "Rejected";
+    alert("Application Rejected ❌");
+}
+</script>
+
+</body>
+</html>

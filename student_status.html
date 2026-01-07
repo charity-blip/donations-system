@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Application Status</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f0f2f5;
+    color: #0A1F44;
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100vh;
+    width: 220px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #0A1F44;
+    color: #C9A227;
+    padding-top: 20px;
+}
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 22px;
+}
+.sidebar a {
+    display: block;
+    color: #C9A227;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.sidebar a:hover {
+    background: #C9A227;
+    color: #0A1F44;
+    border-radius: 8px;
+}
+
+/* Main content */
+.main {
+    margin-left: 220px;
+    padding: 30px;
+}
+
+/* Hero Section */
+.hero {
+    background: #0A1F44;
+    color: #C9A227;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+.hero h1 {
+    margin: 0;
+    font-size: 28px;
+}
+.hero p {
+    margin: 5px 0 0;
+}
+
+/* Card Styles */
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #0A1F44;
+}
+
+.card p {
+    margin: 8px 0;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+}
+.pending { background: #FFA500; }
+.approved { background: #28a745; }
+.rejected { background: #dc3545; }
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #0A1F44;
+    color: #C9A227;
+    margin-top: 30px;
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>Student Panel</h2>
+    <a href="student_dashboard.html">Dashboard</a>
+   
+    <a href="student_status.html">Track Application</a>
+    <a href="logout.html">Logout</a>
+</div>
+
+<!-- Main Content -->
+<div class="main">
+    <div class="hero">
+        <h1>Your Scholarship Application</h1>
+        <p>Below are the details of your submitted application.</p>
+    </div>
+
+    <div class="card">
+        <h2>Personal Information</h2>
+        <p><strong>Full Name:</strong> John Doe</p>
+        <p><strong>Email:</strong> john@example.com</p>
+        <p><strong>Phone:</strong> 0712345678</p>
+        <p><strong>School / Institution:</strong> ABC High School</p>
+        <p><strong>Grade / Year:</strong> Form 4</p>
+        <p><strong>GPA / Academic Score:</strong> 4.2</p>
+    </div>
+
+    <div class="card">
+        <h2>Parent / Guardian Details</h2>
+        <p><strong>Name:</strong> Jane Doe</p>
+        <p><strong>Phone:</strong> 0700123456</p>
+        <p><strong>Occupation:</strong> Teacher</p>
+    </div>
+
+    <div class="card">
+        <h2>Bank Account Details</h2>
+        <p><strong>Bank Name:</strong> Cooperative Bank</p>
+        <p><strong>Account Number:</strong> ****3382</p>
+    </div>
+
+    <div class="card">
+        <h2>Application Status</h2>
+        <p><strong>Status:</strong> <span class="status pending">Pending</span></p>
+        <p><strong>Verification Timeline:</strong> 7–10 business days</p>
+        <p><strong>Remarks:</strong> Your documents are under review.</p>
+    </div>
+
+    <div class="card">
+        <h2>Uploaded Documents</h2>
+        <p><strong>National ID:</strong> <a href="#">national_id.pdf</a></p>
+        <p><strong>Student ID:</strong> <a href="#">student_id.pdf</a></p>
+        
+        <p><strong>Other Documents:</strong> <a href="#">transcript.pdf</a>, <a href="#">recommendation.pdf</a></p>
+    </div>
+</div>
+
+<footer>
+    © 2026 Donor Management System | Track Application
+</footer>
+
+</body>
+</html>

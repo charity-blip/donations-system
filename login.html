@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f7fa;
+        margin:0;
+        color: #0A1F44;
+    }
+
+    /* Header */
+    header{
+        background: #0A1F44;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+    header h1{
+        margin:0;
+        font-size: 24px;
+    }
+
+    /* Login Form Container */
+    .login-container{
+        max-width: 400px;
+        margin: 50px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2{
+        text-align:center;
+        color: #0A1F44;
+        margin-bottom: 20px;
+    }
+
+    form{
+        display:flex;
+        flex-direction: column;
+    }
+    label{
+        margin-bottom:5px;
+        font-weight:bold;
+    }
+    input, select{
+        padding:10px;
+        margin-bottom:15px;
+        border-radius:5px;
+        border:1px solid #ccc;
+        font-size:14px;
+    }
+    input:focus, select:focus{
+        outline:none;
+        border-color:#C9A227;
+    }
+
+    button{
+        background:#0A1F44;
+        color:#C9A227;
+        padding:10px;
+        font-size:16px;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+        font-weight:bold;
+    }
+    button:hover{
+        opacity:0.9;
+    }
+
+    .register-link{
+        text-align:center;
+        margin-top:15px;
+        font-size:14px;
+    }
+    .register-link a{
+        color:#C9A227;
+        text-decoration:none;
+        font-weight:bold;
+    }
+    .register-link a:hover{
+        text-decoration:underline;
+    }
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Login</h1>
+</header>
+
+<!-- Login Form -->
+<div class="login-container">
+    <h2>Access Your Account</h2>
+    <form id="loginForm" onsubmit="login(); return false;">
+        <label for="role">Select Role</label>
+        <select id="role" required>
+            <option value="">Select Role</option>
+            <option value="donor">Donor</option>
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <label for="email">Email / Username</label>
+        <input type="text" id="email" placeholder="Enter your email or username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="register-link">
+        Don't have an account? <a href="register.html">Register here</a>
+    </div>
+</div>
+
+<script>
+function login(){
+    const role = document.getElementById("role").value;
+
+    if(role === "donor"){
+        window.location.href = "donor_dashboard.html";
+    } 
+    else if(role === "student"){
+        window.location.href = "student_dashboard.html";
+    } 
+    else if(role === "admin"){
+        window.location.href = "admin_dashboard.html";
+    } 
+    else {
+        alert("Please select a role");
+    }
+}
+</script>
+
+</body>
+</html>

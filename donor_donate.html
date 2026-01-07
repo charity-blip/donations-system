@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Donate Now</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f0f2f5;
+        color: #0A1F44;
+    }
+
+    /* Header */
+    header {
+        background: #0A1F44;
+        color: #C9A227;
+        text-align: center;
+        padding: 30px 20px;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        padding: 40px 20px;
+        background: #0A1F44;
+        color: #C9A227;
+        border-bottom-left-radius: 50% 10%;
+        border-bottom-right-radius: 50% 10%;
+    }
+    .hero h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    .hero p {
+        font-size: 18px;
+    }
+
+    /* Donation Form */
+    .donate-form {
+        max-width: 500px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .donate-form h3 {
+        text-align: center;
+        color: #0A1F44;
+        margin-bottom: 25px;
+    }
+
+    .donate-form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    .donate-form input, .donate-form select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+    .donate-form input:focus, .donate-form select:focus {
+        outline: none;
+        border-color: #C9A227;
+    }
+
+    /* Payment Options */
+    .payment-options {
+        margin-bottom: 20px;
+    }
+    .payment-options label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    .payment-options input {
+        margin-right: 10px;
+        accent-color: #C9A227;
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+
+    /* Payment Details Box */
+    .payment-details {
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        border-left: 5px solid #C9A227;
+        display: none; /* hidden initially */
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .donate-form button {
+        background: #C9A227;
+        color: #0A1F44;
+        padding: 15px;
+        font-size: 18px;
+        width: 100%;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .donate-form button:hover {
+        opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #0A1F44;
+        color: #C9A227;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    Donate Now
+</header>
+
+<!-- Hero Section -->
+<div class="hero">
+    <h2>Make a Difference Today</h2>
+    <p>Your contributions help students access scholarships and educational support.</p>
+</div>
+
+<!-- Donation Form -->
+<div class="donate-form">
+    <h3>Donation Form</h3>
+    <form id="donateForm" onsubmit="submitDonation(); return false;">
+        <label for="category">Select Category</label>
+        <select id="category" required>
+            <option value="">Choose Category</option>
+            <option value="scholarship">Scholarship Fund</option>
+            <option value="zakat">Zakat / General Support</option>
+            <option value="special">Special Projects</option>
+        </select>
+
+        <label for="amount">Donation Amount (KES)</label>
+        <input type="number" id="amount" placeholder="Enter amount" required min="1">
+
+        <label for="message">Optional Message</label>
+        <input type="text" id="message" placeholder="Your message (optional)">
+
+        <!-- Payment Options -->
+        <div class="payment-options">
+            <label>Select Payment Method</label>
+            <input type="radio" id="mpesa" name="payment" value="M-Pesa" onclick="showPaymentDetails()">
+            <label for="mpesa">M-Pesa</label><br>
+
+            <input type="radio" id="paypal" name="payment" value="PayPal" onclick="showPaymentDetails()">
+            <label for="paypal">PayPal</label><br>
+
+            <input type="radio" id="bank" name="payment" value="Bank Transfer" onclick="showPaymentDetails()">
+            <label for="bank">Bank Transfer</label>
+        </div>
+
+        <!-- Payment Details -->
+        <div id="paymentDetails" class="payment-details"></div>
+
+        <button type="submit">Donate Now</button>
+    </form>
+</div>
+
+<!-- Footer -->
+<footer>
+    © 2026 Donor Management System | Donations are secure and private
+</footer>
+
+<script>
+function showPaymentDetails() {
+    const mpesaDetails = `
+        <strong>M-Pesa Instructions:</strong><br>
+        Paybill: 500600<br>
+        Account: 143217 <br>
+        Name: Scholarship Company Ltd<br>
+        Send the amount and note your donation category.
+    `;
+    const paypalDetails = `
+        <strong>PayPal Instructions:</strong><br>
+        Send payment to: donations@example.com
+    `;
+    const bankDetails = `
+        <strong>Bank Transfer Instructions:</strong><br>
+        Bank: Cooperative Bank<br>
+        Account Number: 011123337382<br>
+        Account Name: Scholarship Company Ltd<br>
+        Include your name as reference.
+    `;
+
+    const selected = document.querySelector('input[name="payment"]:checked').value;
+    const detailsDiv = document.getElementById('paymentDetails');
+    detailsDiv.style.display = "block";
+
+    if(selected === "M-Pesa"){
+        detailsDiv.innerHTML = mpesaDetails;
+    } else if(selected === "PayPal"){
+        detailsDiv.innerHTML = paypalDetails;
+    } else if(selected === "Bank Transfer"){
+        detailsDiv.innerHTML = bankDetails;
+    }
+}
+
+function submitDonation(){
+    const category = document.getElementById("category").value;
+    const amount = document.getElementById("amount").value;
+    const message = document.getElementById("message").value;
+    const paymentMethod = document.querySelector('input[name="payment"]:checked');
+
+    if(!category || !amount || !paymentMethod){
+        alert("Please fill in all required fields!");
+        return;
+    }
+
+    alert(
+        "Thank you for your donation! ✅\n" +
+        "Category: " + category + 
+        "\nPayment Method: " + paymentMethod.value +
+        (message ? "\nMessage: " + message : "")
+    );
+
+    document.getElementById("donateForm").reset();
+    document.getElementById("paymentDetails").style.display = "none";
+}
+</script>
+
+</body>
+</html>

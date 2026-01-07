@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Donor Dashboard</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f0f2f5;
+        color: #0A1F44;
+    }
+
+    /* Header */
+    header {
+        background: #0A1F44;
+        color: #C9A227;
+        text-align: center;
+        padding: 30px 20px;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        padding: 50px 20px;
+        background: #0A1F44;
+        color: #C9A227;
+        border-bottom-left-radius: 50% 10%;
+        border-bottom-right-radius: 50% 10%;
+    }
+    .hero h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    .hero p {
+        font-size: 20px;
+    }
+
+    /* Impact Section */
+    .impact {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        padding: 40px 20px;
+    }
+    .card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        text-align: center;
+        min-width: 220px;
+        flex: 1;
+    }
+    .card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #0A1F44;
+    }
+    .card p {
+        font-size: 18px;
+        font-weight: bold;
+        color: #0A1F44;
+    }
+
+    /* Actions */
+    .actions {
+        text-align: center;
+        margin: 40px 0;
+    }
+    .actions button {
+        background: #C9A227;
+        color: #0A1F44;
+        border: none;
+        padding: 15px 30px;
+        margin: 10px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    .actions button:hover {
+        opacity: 0.85;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #0A1F44;
+        color: #C9A227;
+        font-size: 14px;
+    }
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    Donor Dashboard
+</header>
+
+<!-- Hero Section -->
+<div class="hero">
+    <h2>Welcome, Donor 👋</h2>
+    <p>Your contributions are making a real impact!</p>
+</div>
+
+<!-- Impact Cards -->
+<div class="impact">
+    <div class="card">
+        <h3>Students Supported</h3>
+        <p>12 Students</p>
+    </div>
+    <div class="card">
+        <h3>Scholarships Awarded</h3>
+        <p>6 Scholarships</p>
+    </div>
+</div>
+
+<!-- Actions -->
+<div class="actions">
+    <button onclick="window.location.href='donor_donate.html'">Donate Now</button>
+    <button onclick="window.location.href='#'">View Your Impact</button>
+</div>
+
+<!-- Footer -->
+<footer>
+    © 2026 Donor Management System | Your contributions are secure and private
+</footer>
+
+</body>
+</html>

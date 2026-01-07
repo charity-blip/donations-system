@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Donor / Student Registration</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f7fa;
+        margin:0;
+        color: #0A1F44;
+    }
+
+    /* Header */
+    header{
+        background: #0A1F44;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+    header h1{
+        margin:0;
+        font-size: 24px;
+    }
+
+    /* Registration Form Container */
+    .register-container{
+        max-width: 450px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2{
+        text-align:center;
+        color: #0A1F44;
+        margin-bottom: 20px;
+    }
+
+    /* Form Styling */
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+    label{
+        margin-bottom: 5px;
+        font-weight:bold;
+    }
+    input, select{
+        padding:10px;
+        margin-bottom:15px;
+        border-radius:5px;
+        border:1px solid #ccc;
+        font-size: 14px;
+    }
+    input:focus, select:focus{
+        outline:none;
+        border-color:#C9A227;
+    }
+
+    /* Submit Button */
+    button{
+        background:#0A1F44;
+        color:#C9A227;
+        padding:10px;
+        font-size:16px;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+        font-weight:bold;
+    }
+    button:hover{
+        opacity:0.9;
+    }
+
+    /* Login Link */
+    .login-link{
+        text-align:center;
+        margin-top:15px;
+        font-size:14px;
+    }
+    .login-link a{
+        color:#C9A227;
+        text-decoration:none;
+        font-weight:bold;
+    }
+    .login-link a:hover{
+        text-decoration:underline;
+    }
+
+    /* Error Message */
+    .error{
+        color:red;
+        font-size:13px;
+        margin-bottom:10px;
+    }
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Donor / Student Registration</h1>
+</header>
+
+<!-- Registration Form -->
+<div class="register-container">
+    <h2>Create Your Account</h2>
+    <form id="registerForm">
+        <label for="role">Select Role</label>
+        <select id="role" required>
+            <option value="">Select Role</option>
+            <option value="donor">Donor</option>
+            <option value="student">Student</option>
+        </select>
+
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your full name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" placeholder="+254 7XXXXXXXX" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" required>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+
+        <div class="error" id="errorMsg"></div>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <div class="login-link">
+        Already have an account? <a href="login.html">Login here</a>
+    </div>
+</div>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const role = document.getElementById("role").value;
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const errorMsg = document.getElementById("errorMsg");
+
+    // Validation
+    if(!role){
+        errorMsg.textContent = "Please select a role!";
+        return;
+    }
+
+    if(!name || !email || !phone || !password || !confirmPassword){
+        errorMsg.textContent = "All fields are required!";
+        return;
+    }
+
+    if(password !== confirmPassword){
+        errorMsg.textContent = "Passwords do not match!";
+        return;
+    }
+
+    // Simulate registration success
+    alert("Registration successful! Role: " + role + " ✅");
+    window.location.href = "login.html";
+});
+</script>
+
+</body>
+</html>
